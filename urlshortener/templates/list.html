@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+List of URLs
+{% endblock %}
+
+{% block content %}
+<header>
+    <h1 class="text-center mt-5">SMURL short URLs</h1>
+</header>
+<div class="container mt-5">
+    <p class="lead">This is the list of short URLs and corresponding long URLs:</p>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Short URL</th>
+                    <th>Long URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for url in url_list %}
+                <tr>
+                    <td><a href="http://localhost:8000/search/{{ url.short_url }}" target="_blank">http://localhost:8000/search/{{ url.short_url }}</a></td>
+                    <td><a href="{{ url.long_url }}" target="_blank">{{ url.long_url }}</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

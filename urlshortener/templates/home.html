@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <header>
+        <h1 class="text-center mt-5">Welcome to SMURL</h1>
+        <p class="lead text-center">Shorten your long URLs quickly and easily.</p>
+    </header>
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6">
+            <form method="POST" id="shortenForm">
+                {% csrf_token %}
+                <div class="input-group mb-3">
+                    <input type="url" name="longurl" id="longurl" class="form-control" required >
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary" id="bnt" >Shorten</button>
+                    </div>
+                </div>
+            </form>
+            List of all URLs shortened:<a href="{% url 'list' %}">Here</a>
+        </div>
+        
+    </div>
+    
+</div>
+
+{% endblock %}
+

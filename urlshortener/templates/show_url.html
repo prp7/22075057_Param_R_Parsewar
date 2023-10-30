@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Shows shortURL
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <p class="lead">This is the short URL for your website:</p>
+    <div class="short-url">
+        <a target="_blank" href="http://localhost:8000/search/{{ short_url }}">http://localhost:8000/search/{{ short_url }}</a>
+    </div>
+    <p class="mt-3">Create another: <a href="{% url 'createShorturl' %}" >Here</a></p>
+</div>
+<style>
+    .short-url {
+        padding: 10px;
+    }
+</style>
+{% endblock %}
